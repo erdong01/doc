@@ -1,7 +1,7 @@
 ### swoole 多进程处理数据
 在业务不断变化开发中，难免会碰到需要做数据处理，当数据超过10万+耗时就会变长，这时候需要开多任务处理。
 
-###swoole文档:
+### swoole文档:
 
 https://wiki.swoole.com/#/memory/lock
 
@@ -16,7 +16,7 @@ https://wiki.swoole.com/#/memory/table
 ];
 ```
 
-#### 用的是laravel 框架不能使用协程，所以只能使用多进程处理数据。
+#### 用的是laravel框架不能使用协程，所以只能使用多进程处理数据。
 ```php
 
 <?php
