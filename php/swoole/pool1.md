@@ -6,7 +6,12 @@
 https://wiki.swoole.com/#/memory/lock
 
 https://wiki.swoole.com/#/memory/table
+####环境：
+php 7.4
 
+swoole 4.5
+
+mysql 5.7
 
 #### laravel框架或者基于PDO 需要修改options，config配置需要修改  
 ```php
