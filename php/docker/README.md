@@ -3,7 +3,7 @@
 ##### 配置:
 
 
-    VERSION=2190                                          镜像版本号  备注：我们会跟tower任务编号一样
+    VERSION=2190                                          镜像版本号 
 
     DOCKER_PROVIDER=registry.cn-shanghai.aliyuncs.com     docker仓库供应商
 
