@@ -1,11 +1,12 @@
 ### swoole 多进程处理数据
-在业务不断变化开发中，难免会碰到需要做数据处理，当数据超过10万+耗时就会变长，这时候需要开多任务处理。
+在业务不断变化开发中，难免会碰到需要做数据处理，当数据超过10万+耗时就会变长，这时候需要开多进程处理。
 
 ### swoole文档:
 
 https://wiki.swoole.com/#/memory/lock
 
 https://wiki.swoole.com/#/memory/table
+
 ####环境：
 php 7.4
 
@@ -143,14 +144,7 @@ class DataTreating extends Command
     private function questionStl()
     {
         //题目查询
-        return Question::query()
-            ->where('question_status', 1)
-            ->when($this->subject_id, function ($query) {
-                $query->where('subject_id', $this->subject_id);
-            })
-            ->when($this->updated_at, function ($query) {
-                $query->where('updated_at', '>=', $this->updated_at);
-            });
+        return Question::query()->get();
     }
 
     /**
