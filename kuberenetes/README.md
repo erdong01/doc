@@ -1,7 +1,14 @@
 
 
+### 启用阿里云 Docker源
 
+https://developer.aliyun.com/mirror/
 
+###  启动并加入开机启动
+```
+systemctl start kubectl
+systemctl enable kubectl
+```
 
 
 
@@ -35,7 +42,7 @@ echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
 source ~/.bash_profile
 
 #### kubeadm：命令
-* 初始化：sudo kubeadm init --config /opt/kubeadm/init.yaml
+* 初始化：sudo kubeadm init --config /var/go/src/marstm/build/k8s/init.yaml
 * 加入：sudo kubeadm join --config /opt/kubeadm/join.yaml
 * 重置：sudo kubeadm reset
 * 创建token:
@@ -68,30 +75,31 @@ https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elas
     
     journalctl -xeu kubelet
 
-ifconfig cni0 down
-
-ifconfig flannel.1 down
-
-ifconfig del flannel.1
-
-ifconfig del cni0
-
-ip link del flannel.1
-
-ip link del cni0
-
-brctl delbr  flannel.1
-
-brctl delbr cni0
-
-rm -rf /var/lib/cni/flannel/* && rm -rf /var/lib/cni/networks/cbr0/* && ip link delete cni0 &&  rm -rf /var/lib/cni/network/cni0/*
-
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep dasboard-admin | awk '{print $1}')
+    ifconfig cni0 down
+    
+    ifconfig flannel.1 down
+    
+    ifconfig del flannel.1
+    
+    ifconfig del cni0
+    
+    ip link del flannel.1
+    
+    ip link del cni0
+    
+    brctl delbr  flannel.1
+    
+    brctl delbr cni0
+    
+    rm -rf /var/lib/cni/flannel/* && rm -rf /var/lib/cni/networks/cbr0/* && ip link delete cni0 &&  rm -rf /var/lib/cni/network/cni0/*
+    
+    kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep dasboard-admin | awk '{print $1}')
 
 
 
 ### 使用技巧：
-#### Liveness和Readiness探针
+
+#### 1. Liveness和Readiness探针
 默认情况下Liveness和Readiness探针是没有被设置的。并且有时候一直保持这种情况。
 
 但是当出现不可恢复的错误，你的服务该怎样重启？负载平衡器如何知道特定的Pod可以开始处理流量？或者处理更多的流量？
