@@ -15,7 +15,6 @@ systemctl enable docker
 ```
 
 修改docker的cgroupdriver为systemd（默认为cgroups），因kubernetes默认使用的cgroupdriver为systemd（kubernetes自带的推荐使用）
-
 ```
 vi /etc/docker/daemon.json
 
