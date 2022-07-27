@@ -1,4 +1,3 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode",
     "go.inferGopath": false
 }

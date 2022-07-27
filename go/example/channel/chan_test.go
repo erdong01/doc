@@ -101,3 +101,48 @@ func Read(ch chan struct{}, i int) {
 	<-ch
 	wg.Done()
 }
+
+var M map[int]int
+var CM chan int
+
+func RunCM() {
+	for {
+		select {
+		case m := <-CM:
+			fmt.Println("m", m)
+			M[m] = m
+		}
+	}
+}
+
+func TestXxxx(t *testing.T) {
+	M = make(map[int]int)
+	CM = make(chan int)
+	go RunCM()
+	for i := 0; i < 1000; i++ {
+		CM <- i
+	}
+	fmt.Println(len(M))
+}
+
+func TestP(t *testing.T) {
+	// var a int
+	// var p *int
+	// p = &a
+
+	// a = 10
+
+	// fmt.Println("*p = ", *p)
+	// fmt.Println("a = ", a)
+
+	// *p = 100 //解引用
+	// fmt.Println("*p = ", *p)
+	// fmt.Println("a = ", a)
+
+	var ss *string
+	ss = new(string)
+	*ss = "1"
+	fmt.Printf("%q \n", *ss)
+}
+
+

@@ -6,10 +6,11 @@ import (
 )
 
 func TestFor(t *testing.T) {
-	slice := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	slice := []int{0, 1, 2, 3}
 	m := make(map[int]*int)
-	for key := range slice {
-		m[key] = &slice[key]
+	for key, val := range slice {
+		m[key] = &val
+		fmt.Println(&val)
 	}
 	for k, v := range m {
 		fmt.Println(k, "->", *v)
