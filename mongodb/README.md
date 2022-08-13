@@ -1,0 +1,4 @@
+进入mongodb
+
+
+`mongosh`
