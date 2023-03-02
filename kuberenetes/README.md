@@ -27,13 +27,14 @@ sysctl --system
 
 ### 添加路由规则
 https://www.iteye.com/blog/codyjava-2435846
+```
 iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -F
 iptables -L -n
 iptables -t nat -I POSTROUTING -s 10.244.0.0/24 -j MASQUERADE
 iptables-save
-
+```
 
 #### kubectl: 配置操作
 
