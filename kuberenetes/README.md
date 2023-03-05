@@ -8,6 +8,8 @@ https://developer.aliyun.com/mirror/
 ```
 systemctl start kubectl
 systemctl enable kubectl
+
+systemctl start kubelet
 ```
 
 
