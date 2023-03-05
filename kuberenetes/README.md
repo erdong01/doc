@@ -61,6 +61,10 @@ source ~/.bash_profile
 ````
     kubectl describe secret dashboard-admin-token-cdssv -n kube-system
 ````
+
+```
+kubeadm reset --cri-socket unix:///var/run/cri-dockerd.sock
+```
 #### 允许master污点：
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
