@@ -71,6 +71,7 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 kubectl taint node master node-role.kubernetes.io/master-
 ```
+允许master污点 https://zhuanlan.zhihu.com/p/446621713
 
 ### 日志:
 #### 记录架构
