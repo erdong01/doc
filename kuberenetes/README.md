@@ -66,9 +66,11 @@ source ~/.bash_profile
 kubeadm reset --cri-socket unix:///var/run/cri-dockerd.sock
 ```
 #### 允许master污点：
+```
 kubectl taint nodes --all node-role.kubernetes.io/master-
-kubectl taint node master node-role.kubernetes.io/master-
 
+kubectl taint node master node-role.kubernetes.io/master-
+```
 
 ### 日志:
 #### 记录架构
