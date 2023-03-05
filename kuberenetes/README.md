@@ -10,6 +10,8 @@ systemctl start kubectl
 systemctl enable kubectl
 
 systemctl start kubelet
+
+journalctl -xefu kubelet
 ```
 
 
