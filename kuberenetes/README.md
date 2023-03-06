@@ -14,7 +14,12 @@ systemctl start kubelet
 journalctl -xefu kubelet
 ```
 
-
+解决方法： 重新安装CNI网络插件(实践时采用了虚拟机，可能是因为当时使用的快照没包含网络插件)，然后重新清理结点，最后再重新加入结点
+```
+CNI_VERSION="v1.2.0"
+mkdir -p /opt/cni/bin
+curl -L "https://github.com/containernetworking/plugins/releases/download/${CNI_VERSION}/cni-plugins-linux-amd64-${CNI_VERSION}.tgz" | sudo tar -C /opt/cni/bin -xz
+```
 
 #### 配置转发相关参数，否则可能会出错
 vim  /etc/sysctl.conf
