@@ -56,7 +56,7 @@ source ~/.bash_profile
 #### kubeadm：命令
 
 * 生成TOKEN kubeadm token generate
-* 初始化：sudo kubeadm init --config /var/go/src/marstm/build/k8s/init.yaml --max-mutating-requests-inflight 3000  --max-requests-inflight 1000
+* 初始化：sudo kubeadm init --config ./init.yaml --max-mutating-requests-inflight 3000  --max-requests-inflight 1000
 * 加入：sudo kubeadm join --config /opt/kubeadm/join.yaml
 * 重置：sudo kubeadm reset
 * 创建token:
