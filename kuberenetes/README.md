@@ -71,9 +71,14 @@ source ~/.bash_profile
 
 ```
 kubeadm reset --cri-socket unix:///var/run/cri-dockerd.sock
-
-sudo kubelet --container-runtime-endpoint=unix:///var/run/cri-dockerd.sock
 ```
+
+### 安装 flannel
+
+```
+https://github.com/flannel-io/flannel
+```
+
 #### 允许master污点：
 ```
 kubectl taint nodes --all node-role.kubernetes.io/master-
