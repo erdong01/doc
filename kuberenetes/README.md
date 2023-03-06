@@ -96,6 +96,11 @@ https://github.com/ielepro/kubernetes-efk/blob/master/fluentd_daemonset.yaml
 https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/fluentd-elasticsearch
 
 
+#### 查看pod详情
+```
+kubectl describe pods 
+```
+
 ### 问题：
 
 1.
