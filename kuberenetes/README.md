@@ -64,6 +64,8 @@ source ~/.bash_profile
 
 ```
 kubeadm reset --cri-socket unix:///var/run/cri-dockerd.sock
+
+sudo kubelet --container-runtime-endpoint=unix:///var/run/cri-dockerd.sock
 ```
 #### 允许master污点：
 ```
