@@ -13,6 +13,8 @@ systemctl start kubelet
 
 journalctl -xefu kubelet
 ```
+### 安装 cri-dockerd
+https://github.com/Mirantis/cri-dockerd
 
 解决方法： 重新安装CNI网络插件(实践时采用了虚拟机，可能是因为当时使用的快照没包含网络插件)，然后重新清理结点，最后再重新加入结点
 ```
