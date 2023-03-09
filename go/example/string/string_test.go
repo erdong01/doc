@@ -39,7 +39,7 @@ func reverse(str string) string {
 func TestXxx(t *testing.T) {
 	str := "hello"
 	a := []rune(str)
-	a[0] = 'P'
+	a[0] = 'x'
 	fmt.Println(str[0])
 	fmt.Println(string(a))
 }

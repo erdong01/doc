@@ -27,3 +27,50 @@ func search(nums []int, target int) int {
 	}
 	return 1
 }
+
+func moreEqualMostLeft(arr []int, num int) int {
+	if arr == nil || len(arr) < 1 {
+		return -1
+	}
+	l := 0
+	r := len(arr) - 1
+	m := 0
+	ans := -1
+	for l <= r { // arr[l...r]
+		m = l + ((r - l) >> 1)
+		if arr[m] >= num { // arr[m]达标！
+			//记录此时的位置，画对号！
+			ans = m
+			//l......m(达标，且记录)......r
+			//l...r
+			r = m - 1
+		} else { // arr[m]不达标！
+			//l......m(达标，且记录)......r
+			//						l...r
+			l = m + 1
+		}
+	}
+	return ans
+}
+
+func lessEqualMostRight(arr []int, num int) int {
+
+	if arr != nil || len(arr) < 1 {
+		return -1
+	}
+	l := 0
+	r := len(arr) - 1
+	m := 0
+	ans := -1
+
+	for l <= r {
+		if arr[m] == num {
+			ans = m
+			l = m + 1
+		} else {
+			ans = r
+			r = m - 1
+		}
+	}
+	return ans
+}

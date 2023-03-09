@@ -36,4 +36,24 @@ func TestPool(tt *testing.T) {
 
 	t2 = pool.Get().(string)
 	fmt.Println(t2)
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
+
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
+
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
+
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
+
+	t2 = pool.Get().(string)
+	fmt.Println(t2)
 }

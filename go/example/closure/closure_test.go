@@ -42,3 +42,21 @@ func func1() func(val int) int {
 		return sum
 	}
 }
+
+func TestXxx111(t *testing.T) {
+	funcs := testFunc(100)
+	for _, v := range funcs {
+		v()
+	}
+}
+
+func testFunc(x int) []func() {
+	var funcs []func()
+	values := []int{1, 2, 3}
+	for _, val := range values {
+		funcs = append(funcs, func() {
+			fmt.Printf("testFunc val = %d\n", x+val)
+		})
+	}
+	return funcs
+}

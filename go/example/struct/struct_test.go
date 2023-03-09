@@ -6,19 +6,18 @@ import (
 	"time"
 )
 
-type Ta struct {
-	age  int
-	name string
-}
-
 func TestXxx(t *testing.T) {
 
-	sn1 := Ta{age: 11, name: "qq"}
-	sn2 := Ta{age: 11, name: "qq"}
+	sn1 := struct {
+		age  int
+		name string
+	}{age: 11, name: "qq"}
+	sn2 := struct {
+		age  int
+		name string
+	}{age: 11, name: "qq"}
 	if sn1 == sn2 {
 		fmt.Println("true")
-	} else {
-		fmt.Println("false")
 	}
 }
 

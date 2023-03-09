@@ -14,8 +14,8 @@ func TestDefer(t *testing.T) {
 	}()
 	m *= 10
 	defer fmt.Printf("third defer %d \n", m)
-	funcVal := func1()
-	funcVal()
+	// funcVal := func1()
+	// funcVal()
 	m *= 10
 }
 
@@ -29,9 +29,9 @@ func func1() func() {
 func TestF(t *testing.T) {
 	sum := f(3)
 	fmt.Println("F", sum)
-	p := 1
-	incr(&p)
-	fmt.Println(p)
+	// p := 1
+	// incr(&p)
+	// fmt.Println(p)
 }
 
 func f(n int) (r int) {
@@ -48,7 +48,11 @@ func f(n int) (r int) {
 	}
 	return n + 1
 }
-
+func TestIncr(t *testing.T) {
+	p := 1
+	incr(&p)
+	fmt.Println(p)
+}
 func incr(p *int) int {
 	*p++
 	return *p

@@ -29,3 +29,4 @@ func TestXxx(t *testing.T) {
 func proc() {
 	panic("ok")
 }
+

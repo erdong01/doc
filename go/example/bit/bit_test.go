@@ -34,3 +34,21 @@ func TestConst(t *testing.T) {
 	f = f ^ d
 	fmt.Println(f & d)
 }
+
+func TestChange(t *testing.T) {
+	a := 16
+	b := 603
+
+	a = a ^ b
+	b = a ^ b
+	a = a ^ b
+	fmt.Println(a, b)
+
+	a = 148
+	fmt.Println("=============")
+	for a != 0 {
+		rightOne := a & (-a)
+		fmt.Println(rightOne)
+		a ^= rightOne
+	}
+}

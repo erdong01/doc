@@ -1,0 +1,10 @@
+<template>
+    <div>
+        <p>样式二</p>
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ul>
+    </div>
+</template>

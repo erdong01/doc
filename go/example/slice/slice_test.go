@@ -91,7 +91,7 @@ func TestAssignment(t *testing.T) {
 	fmt.Println("r =", r)
 	fmt.Println("a =", a)
 	// r 1 12 13 45
-	// a 1 12 13 4 5
+	// a 1 12 13 45
 }
 
 func TestJh(t *testing.T) {
@@ -166,5 +166,3 @@ func removeCopy(data []int, index int) []int {
 	copy(data[index:], data[index+1:])
 	return data[:len(data)-1]
 }
-
-

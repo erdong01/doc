@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-//选择排序
+// 选择排序
 func TestSelectSort(t *testing.T) {
 	arr := [6]int{10, 34, 19, 100, 80, 99}
 	SelectSort(&arr)

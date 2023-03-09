@@ -2,6 +2,8 @@ package goroutine
 
 import (
 	"fmt"
+	"os"
+	"runtime/trace"
 	"sync"
 	"testing"
 	"time"
@@ -51,4 +53,20 @@ func TestXxx(t *testing.T) {
 	dog(catCH, dogCH, &wg)
 	fish(dogCH, fishCH, &wg)
 	wg.Wait()
+}
+
+func TestTrace(t *testing.T) {
+
+	f, err := os.Create("trace.out")
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	trace.Start(f)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Hello GMP")
+	trace.Stop()
 }

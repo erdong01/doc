@@ -145,4 +145,50 @@ func TestP(t *testing.T) {
 	fmt.Printf("%q \n", *ss)
 }
 
+func TestAAAA(t *testing.T) {
+	ch := make(chan string, 4)
+	fmt.Println(ch, unsafe.Sizeof(ch))
+	go sendTask(ch)
+	go receiveTask(ch)
+	time.Sleep(1 * time.Second)
+}
 
+func sendTask(ch chan string) {
+	taskList := []string{"this", "is", "a", "demo"}
+	for _, task := range taskList {
+		ch <- task
+	}
+}
+
+func receiveTask(ch chan string) {
+	for {
+		task := <-ch
+		fmt.Println("received:", task)
+	}
+}
+
+func TestChan(t *testing.T) {
+
+	chan1 := make(chan struct{}, 1)
+	chan2 := make(chan struct{}, 1)
+	chan3 := make(chan struct{}, 1)
+	wg.Add(3)
+	chan1 <- struct{}{}
+	start := time.Now().Unix()
+	go print("1", chan1, chan2)
+	go print("2", chan2, chan3)
+	go print("3", chan3, chan1)
+	wg.Wait()
+	end := time.Now().Unix()
+	fmt.Println(end - start)
+}
+
+func print(goroutine string, inputchan chan struct{}, outchan chan struct{}) {
+	time.Sleep(1 * time.Second)
+	select {
+	case <-inputchan:
+		fmt.Printf("%s", goroutine)
+		outchan <- struct{}{}
+	}
+	wg.Done()
+}
