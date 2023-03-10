@@ -129,8 +129,10 @@ kubectl describe pods
     
     kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep dasboard-admin | awk '{print $1}')
 
-
-
+1. 国内无法从 gcr.io 拉取镜像
+```
+解决：改为国内镜像仓库 minikube start --memory=3g --cpus=2 --image-mirror-country='cn' --image-repository='registry.cn-hangzhou.aliyuncs.com/google_containers' --kubernetes-version=v1.14.10
+```
 ### 使用技巧：
 
 #### 1. Liveness和Readiness探针
