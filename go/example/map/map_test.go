@@ -110,3 +110,12 @@ func ChanData(DataChan chan Dataer) {
 		}
 	}
 }
+
+func TestGo1011(t *testing.T) {
+	m := make(map[string]int, 3)
+	x := len(m)
+	m["Go"] = m["Go"]
+	y := len(m)
+	println(x, y)
+
+}

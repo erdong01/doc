@@ -2,6 +2,7 @@ package aoi
 
 import (
 	"fmt"
+	"runtime"
 	"testing"
 )
 
@@ -22,5 +23,19 @@ func TestAOIManagerSuroundGridsByGid(t *testing.T) {
 			gIDs = append(gIDs, grid.GID)
 		}
 		fmt.Println("surounding grid IDs are ", gIDs)
+	}
+}
+
+func TestXxx(t *testing.T) {
+	runtime.GOMAXPROCS(1)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(i)
+		}
+	}()
+	var b int64
+	for {
+		b++
 	}
 }

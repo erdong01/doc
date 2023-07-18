@@ -17,6 +17,7 @@ func moveZeroes(nums []int) {
 	for right < n {
 		if nums[right] != 0 {
 			nums[left], nums[right] = nums[right], nums[left]
+			fmt.Println("nums", nums)
 			left++
 		}
 		right++

@@ -166,3 +166,17 @@ func removeCopy(data []int, index int) []int {
 	copy(data[index:], data[index+1:])
 	return data[:len(data)-1]
 }
+func TestGo1011(t *testing.T) {
+	var x = []string{"A", "B", "C"}
+
+	for i, s := range x {
+		print(i, s, ",")
+		x[i+1] = "M"
+		x = append(x, "Z")
+		x[i+1] = "Z"
+	}
+}
+func TestGo1013(t *testing.T) {
+	var x = []int{2: 5, 6, 0: 7}
+	fmt.Println(x)
+}

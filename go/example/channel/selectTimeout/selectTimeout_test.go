@@ -7,28 +7,49 @@ import (
 	"time"
 )
 
-func TestMain(t *testing.T) {
-	ctx, stop := context.WithTimeout(context.Background(), 3*time.Second)
-	go func() {
-		worker(ctx, "打工人1")
-	}()
-	go func() {
-		worker(ctx, "打工人2")
-	}()
+func TestTimeOut(t *testing.T) {
+	result := make(chan string)
+	timeout := time.After(3 * time.Second)
 
-	time.Sleep(5 * time.Second)
-	stop()
-	fmt.Println("???")
+	go func() {
+		time.Sleep(5 * time.Second)
+		result <- "服务端结果"
+	}()
+	for {
+		select {
+		case v := <-result:
+			fmt.Println(v)
+		case <-timeout:
+			fmt.Println("网络访问超时了")
+			return
+		default:
+			fmt.Println("等待...")
+			time.Sleep(1 * time.Second)
+		}
+	}
 }
 
+func TestContext(t *testing.T) {
+	ctx, stop := context.WithCancel(context.Background())
+	go func() {
+		worker(ctx, "1号员工")
+	}()
+	go func() {
+		worker(ctx, "2号员工")
+	}()
+
+	time.Sleep(time.Second * 5)
+	stop()
+	time.Sleep(time.Second)
+}
 func worker(ctx context.Context, name string) {
 	for {
 		select {
 		case <-ctx.Done():
-			fmt.Println("下班了")
+			fmt.Println(name, "下班咯~~~")
 			return
 		default:
-			fmt.Println("认证摸鱼中，请切勿打扰。。。")
+			fmt.Println(name, "认真工作中，请勿打扰...")
 		}
 		time.Sleep(1 * time.Second)
 	}

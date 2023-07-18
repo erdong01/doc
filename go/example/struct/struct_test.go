@@ -1,7 +1,9 @@
 package struct_test
 
 import (
+	"encoding/json"
 	"fmt"
+	"reflect"
 	"testing"
 	"time"
 )
@@ -22,7 +24,23 @@ func TestXxx(t *testing.T) {
 }
 
 func TestXxxx(t *testing.T) {
+	var p PP
+	tt := reflect.New(reflect.TypeOf(p)).Interface()
 
+	var a any
+	a = p
+	fmt.Println("a", a, "ttt", tt)
+	err := json.Unmarshal([]byte(`{"name_at":"testtest","Data":{"aa":"test"}}`), tt)
+	fmt.Println("err", err, "ttt2", tt)
+	var ppp *PP
+	ppp = tt.(*PP)
+	fmt.Println("err", err)
+	fmt.Println("a", a, "ppp", ppp.NameAt)
+
+}
+
+type PP struct {
+	NameAt string `json:"name_at"`
 }
 
 type P struct {
