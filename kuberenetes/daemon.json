@@ -2,15 +2,10 @@
 {
         "exec-opts": ["native.cgroupdriver=systemd"],
         "registry-mirrors": [
-                "https://ghcr.dockerhub.icu",
-                "https://registry.cn-hangzhou.aliyuncs.com",
-                "https://noxdjbse.mirror.aliyuncs.com",
-                "https://docker.m.daocloud.io",
-                "https://docker.nju.edu.cn",
-                "https://docker.m.daocloud.io", 
-                "https://noohub.ru", 
-                "https://huecker.io",
-                "https://dockerhub.timeweb.cloud" ,
-                "https://docker.mirrors.ustc.edu.cn"
+                "https://dockerhub.icu",
+                "https://docker.wget.at",
+                "https://dockerpull.com",
+                "https://registry.cn-hangzhou.aliyuncs.com"
+               
         ]
 }
